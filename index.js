@@ -13,7 +13,7 @@ fastify.post("/", async (request, reply) => {
 fastify.get("/", async (request, reply) => {
   reply.status(200).send();
 });
-fastify.listen({ port: process.env.PORT || "8080" }, (err, address) => {
+fastify.listen({ port: process.env.PORT || "8080", host: "0.0.0.0" }, (err, address) => {
   if (err) {
     console.error(err);
     process.exit(1);
