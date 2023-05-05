@@ -13,10 +13,10 @@ fastify.post("/", async (request, reply) => {
 fastify.get("/", async (request, reply) => {
   reply.status(200).send();
 });
-fastify.listen({ port: 8080 }, (err) => {
+server.listen({ port: process.env.PORT, host: '0.0.0.0' }, (err, address) => {
   if (err) {
-    fastify.log.error(err);
+    console.error(err);
     process.exit(1);
   }
-  console.log(`Server listening on http://localhost:${fastify.server.address().port}`);
+  console.log(`Server listening at ${address}`);
 });
