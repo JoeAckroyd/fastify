@@ -1,6 +1,6 @@
 const fastify = require("fastify")({
   logger: true,
-  bodyLimit: 30 * 1024 * 1024,
+  bodyLimit: 60 * 1024 * 1024,
 });
 
 fastify.register(require("@fastify/cors"), {
@@ -9,7 +9,7 @@ fastify.register(require("@fastify/cors"), {
 
 fastify.post("/", async (request, reply) => {
   const { body } = request;
-  reply.status(200).send();
+  reply.status(200).send({});
 });
 fastify.get("/", async (request, reply) => {
   reply.status(200).send();
