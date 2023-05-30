@@ -9,11 +9,13 @@ fastify.register(require("@fastify/cors"), {
 
 fastify.post("/", async (request, reply) => {
   const { body } = request;
-  reply.status(200).send({});
+  reply.status(200).send({ body });
 });
+
 fastify.get("/", async (request, reply) => {
   reply.status(200).send();
 });
+
 fastify.listen({ port: process.env.PORT || "8080", host: "0.0.0.0" }, (err, address) => {
   if (err) {
     console.error(err);
