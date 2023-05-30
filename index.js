@@ -8,6 +8,7 @@ fastify.register(require("@fastify/cors"), {
 });
 
 fastify.post("/", async (request, reply) => {
+  const { body } = request;
   reply.status(200).send();
 });
 fastify.get("/", async (request, reply) => {
